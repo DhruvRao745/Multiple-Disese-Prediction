@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/heart.css">
+</head>
+<body>
+    <header>
+        <h1>Heart Disease Prediction</h1>
+        <p>Provide your health details to assess your heart disease risk.</p>
+    </header>
+    
+    <nav style="text-align: center; margin-bottom: 20px;">
+        <a href="/" style="margin: 0 10px; text-decoration: none; color: #3194d6;">Home</a> |
+        <a href="/diabetes" style="margin: 0 10px; text-decoration: none; color: #3194d6;">Diabetes</a> |
+        <a href="/parkinsons" style="margin: 0 10px; text-decoration: none; color: #3194d6;">Parkinson's</a>
+    </nav>
+
+    <form action="/submit-form" method="post">
+    <section class="info-section">
+        <h2>What is Heart Disease?</h2>
+        <p>
+            Heart disease refers to various types of heart conditions. Early detection helps in management and prevention of complications.
+        </p>
+    </section>
+
+    <section class="symptom-cards">
+
+        <div class="card">
+            <div class="icon"><i class="fa fa-child" aria-hidden="true"></i></div>
+            <div class="card-title">Age</div>
+            <div class="card-desc">Enter your age in years.</div>
+            <label class="field-label" for="Age"></label>
+            <input type="number" id="Age" name="Age" min="1" max="120" placeholder="Enter your age" required>
+        </div>
+
+        <div class="card">
+            <div class="icon"><i class="fa fa-venus-mars"></i></div>
+            <div class="card-title">Sex</div>
+            <div class="card-desc">Select your biological sex: 1 = male, 0 = female.</div>
+            <label class="field-label" for="Sex"></label>
+            <input type="number" id="Sex" name="Sex" min="0" max="1" placeholder="0 or 1" required>
+        </div>
+
+        <div class="card">
+            <div class="icon"><i class="fa fa-heartbeat"></i></div>
+            <div class="card-title">Chest Pain Type (cp)</div>
+            <div class="card-desc">Enter chest pain type (0-3).</div>
+            <label class="field-label" for="cp"></label>
+            <input type="number" id="cp" name="cp" min="0" max="3" placeholder="0-3" required>
+        </div>
+
+        <div class="card">
+            <div class="icon"><i class="fa fa-tachometer-alt"></i></div>
+            <div class="card-title">Resting Blood Pressure (trestbps)</div>
+            <div class="card-desc">Enter resting blood pressure (in mm Hg).</div>
+            <label class="field-label" for="trestbps"></label>
+            <input type="number" id="trestbps" name="trestbps" min="50" max="250" placeholder="mm Hg" required>
+        </div>
+
+        <div class="card">
+            <div class="icon"><i class="fa fa-vial"></i></div>
+            <div class="card-title">Cholesterol (chol)</div>
+            <div class="card-desc">Enter serum cholesterol in mg/dl.</div>
+            <label class="field-label" for="chol"></label>
+            <input type="number" id="chol" name="chol" min="100" max="600" placeholder="mg/dl" required>
+        </div>
+
+        <div class="card">
+            <div class="icon"><i class="fa fa-thermometer-half"></i></div>
+            <div class="card-title">Fasting Blood Sugar (fbs)</div>
+            <div class="card-desc">Fasting blood sugar > 120 mg/dl? (1 = true; 0 = false)</div>
+            <label class="field-label" for="fbs"></label>
+            <input type="number" id="fbs" name="fbs" min="0" max="1" placeholder="0 or 1" required>
+        </div>
+
+        <div class="card">
+            <div class="icon"><i class="fa fa-stethoscope"></i></div>
+            <div class="card-title">Resting ECG (restecg)</div>
+            <div class="card-desc">Resting electrocardiographic results (0-2).</div>
+            <label class="field-label" for="restecg"></label>
+            <input type="number" id="restecg" name="restecg" min="0" max="2" placeholder="0-2" required>
+        </div>
+
+        <div class="card">
+            <div class="icon"><i class="fa fa-heart"></i></div>
+            <div class="card-title">Maximum Heart Rate Achieved (thalach)</div>
+            <div class="card-desc">Enter max heart rate achieved.</div>
+            <label class="field-label" for="thalach"></label>
+            <input type="number" id="thalach" name="thalach" min="50" max="220" placeholder="Heart Rate" required>
+        </div>
+
+        <div class="card">
+            <div class="icon"><i class="fa fa-running"></i></div>
+            <div class="card-title">Exercise Induced Angina (exang)</div>
+            <div class="card-desc">Exercise induced angina (1 = yes; 0 = no).</div>
+            <label class="field-label" for="exang"></label>
+            <input type="number" id="exang" name="exang" min="0" max="1" placeholder="0 or 1" required>
+        </div>
+
+        <div class="card">
+            <div class="icon"><i class="fa fa-chart-line"></i></div>
+            <div class="card-title">Oldpeak</div>
+            <div class="card-desc">ST depression induced by exercise relative to rest.</div>
+            <label class="field-label" for="oldpeak"></label>
+            <input type="number" id="oldpeak" name="oldpeak" step="0.1" min="0" max="10" placeholder="0.0 - 10.0" required>
+        </div>
+
+        <div class="card">
+            <div class="icon"><i class="fa fa-sliders-h"></i></div>
+            <div class="card-title">Slope</div>
+            <div class="card-desc">Slope of the peak exercise ST segment (0-2).</div>
+            <label class="field-label" for="slope"></label>
+            <input type="number" id="slope" name="slope" min="0" max="2" placeholder="0-2" required>
+        </div>
+
+        <div class="card">
+            <div class="icon"><i class="fa fa-heart-broken"></i></div>
+            <div class="card-title">Number of Major Vessels (ca)</div>
+            <div class="card-desc">Count of major vessels colored by fluoroscopy (0-3).</div>
+            <label class="field-label" for="ca"></label>
+            <input type="number" id="ca" name="ca" min="0" max="3" placeholder="0-3" required>
+        </div>
+
+        <div class="card">
+            <div class="icon"><i class="fa fa-procedures"></i></div>
+            <div class="card-title">Thal</div>
+            <div class="card-desc">Thalassemia type (1 = normal; 2 = fixed defect; 3 = reversible defect).</div>
+            <label class="field-label" for="thal"></label>
+            <input type="number" id="thal" name="thal" min="1" max="3" placeholder="1-3" required>
+        </div>
+
+        <!-- <div class="card">
+            <div class="icon"><i class="fa fa-flag"></i></div>
+            <div class="card-title">Target</div>
+            <div class="card-desc">Presence of heart disease (1 = yes; 0 = no).</div>
+            <label class="field-label" for="target"></label>
+            <input type="number" id="target" name="target" min="0" max="1" placeholder="0 or 1" required>
+        </div> -->
+
+    </section>
+     <div style="text-align: center; margin: 20px;">
+  <button type="submit" class="submit-button">Submit</button>
+</div>
+</form>
+
+ <section class="output-box" style="border: 2px solid #ccc; padding: 16px; margin: 20px; background-color: #f9f9f9; font-size: 1.2em;">
+    <h2>Output</h2>
+    <div id="output-content">
+      <!-- Output data or messages will appear here -->
+      Please fill the above fields to see your Heart risk assessment.
+    </div>
+  </section>
+<script>
+document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const output = document.getElementById('output-content');
+  output.textContent = 'Processing...';
+
+  // Collect form data
+  const age = parseInt(document.getElementById('Age').value.trim());
+  const sex = parseInt(document.getElementById('Sex').value.trim());
+  const cp = parseInt(document.getElementById('cp').value.trim());
+  const trestbps = parseInt(document.getElementById('trestbps').value.trim());
+  const chol = parseInt(document.getElementById('chol').value.trim());
+  const fbs = parseInt(document.getElementById('fbs').value.trim());
+  const restecg = parseInt(document.getElementById('restecg').value.trim());
+  const thalach = parseInt(document.getElementById('thalach').value.trim());
+  const exang = parseInt(document.getElementById('exang').value.trim());
+  const oldpeak = parseFloat(document.getElementById('oldpeak').value.trim());
+  const slope = parseInt(document.getElementById('slope').value.trim());
+  const ca = parseInt(document.getElementById('ca').value.trim());
+  const thal = parseInt(document.getElementById('thal').value.trim());
+
+  // Basic validation (add more if needed)
+  let errors = [];
+  if (isNaN(age) || age < 1 || age > 120) errors.push('Age must be between 1 and 120.');
+  if (isNaN(sex) || sex < 0 || sex > 1) errors.push('Sex must be 0 or 1.');
+  if (isNaN(cp) || cp < 0 || cp > 3) errors.push('Chest pain type must be 0-3.');
+  // Add validations for other fields as needed
+
+  if (errors.length > 0) {
+    output.innerHTML = '<p style="color: red;">' + errors.join('<br>') + '</p>';
+    return;
+  }
+
+  // Send data to API
+  fetch('/predict_heart', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      age: age,
+      sex: sex,
+      cp: cp,
+      trestbps: trestbps,
+      chol: chol,
+      fbs: fbs,
+      restecg: restecg,
+      thalach: thalach,
+      exang: exang,
+      oldpeak: oldpeak,
+      slope: slope,
+      ca: ca,
+      thal: thal
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.error) {
+      output.innerHTML = '<p style="color: red;">Error: ' + data.error + '</p>';
+    } else {
+      const prediction = data.prediction;
+      const result = prediction === 1 ? 'High risk of heart disease' : 'Low risk of heart disease';
+      output.innerHTML = `
+        <p><strong>Heart Disease Prediction Result</strong></p>
+        <p>Prediction: <strong style="color: ${prediction === 1 ? 'red' : 'green'};">${result}</strong></p>
+        <p>Recommendations:</p>
+        <ul>
+          ${prediction === 1 ? '<li>Consult a cardiologist immediately.</li>' : ''}
+          <li>Maintain a healthy diet and exercise regularly.</li>
+          <li>Monitor blood pressure and cholesterol levels.</li>
+        </ul>
+      `;
+    }
+  })
+  .catch(error => {
+    output.innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
+  });
+});
+</script>
+
+</body>
+</html>

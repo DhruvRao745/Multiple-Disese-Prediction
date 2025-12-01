@@ -1,0 +1,5 @@
+- [x] Remove the self-closed empty form tag in parkinsons.html
+- [x] Add opening form tag before symptom-cards section with correct action
+- [x] Verify the closing form tag is after the submit button
+- [x] Test the submit button functionality
+- [x] Fix feature name mismatch in Parkinson's prediction by mapping incoming feature names to expected 'feature_0' to 'feature_21' in app.py

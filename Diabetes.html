@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Symptoms - Awareness</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+     
+     <link rel="stylesheet" href="Diabetes.css">
+</head>
+<body>
+    <header>
+        <h1>Diabetes Symptoms</h1>
+        <p>Early awareness can save lives. Know the signs, care for your health.</p>
+    </header>
+
+    <nav style="text-align: center; margin-bottom: 20px;">
+        <a href="/" style="margin: 0 10px; text-decoration: none; color: #3194d6;">Home</a> |
+        <a href="/heart" style="margin: 0 10px; text-decoration: none; color: #3194d6;">Heart Disease</a> |
+        <a href="/parkinsons" style="margin: 0 10px; text-decoration: none; color: #3194d6;">Parkinson's</a>
+    </nav>
+
+<form 
+    action="/submit-form" method="post">
+    <section class="info-section">
+        <h2>What is Diabetes?</h2>
+        <p>
+            Diabetes is a chronic condition affecting how your body regulates blood sugar.
+            Recognizing symptoms early can lead to proper management and a healthier life.
+        </p>
+    </section>
+
+    <section class="symptom-cards">
+    <div class="card">
+    <div class="icon">
+    <i class="fa fa-child" aria-hidden="true"></i>
+  </div>
+ <div class="card-title">Age</div>
+  <div class="card-desc">Please enter your age. Age helps us provide age-appropriate content and recommendations.</div>
+  <label class="field-label" for="Age"></label>
+  <input type="number"
+    id="Age"
+    name="Age"
+    min="1"
+    max="120"
+    placeholder="Enter your Age"
+    required
+  >
+</div>
+
+        <div class="card">
+    <div class="icon"><i class="fa-solid fa-person-pregnant"></i></div>
+    <div class="card-title">Pregnancy</div>
+    <div class="card-desc">Pregnancy is the period during which a woman carries a developing fetus.</div>
+    <label class="field-label" for="Pregnancy"></label>
+    <input type="number"
+        id="Pregnancy"
+        name="Pregnancy"
+        min="0"
+        max="40"
+        placeholder="Enter weeks"
+        required
+    >
+</div>
+
+        <div class="card">
+    <div class="icon">🩸</div>
+    <div class="card-title">Glucose</div>
+    <div class="card-desc">The main sugar found in your blood, providing energy to your body.</div>
+    <label class="field-label" for="Glucose"></label>
+    <input type="number"
+           id="Glucose"
+           name="Glucose"
+           min="70"
+           max="180"
+           placeholder="none"
+           required
+    >
+</div>
+
+        <div class="card">
+    <div class="icon">🩺</div>
+    <div class="card-title">Blood Pressure</div>
+    <div class="card-desc">The force of blood pushing against the walls of arteries.</div>
+    <label class="field-label" for="Blood Pressure"></label>
+    <input type="number"
+           id="Blood Pressure"
+           name="Blood Pressure"
+           min="0"
+           max="180"
+           placeholder="none"
+           required>
+</div>
+
+        <div class="card">
+   <!-- <div class="icon">🧴</div>-->
+    <div class="card-title">Skin Thickness</div>
+    <div class="card-desc">The measurement of the thickness of the skin layers, affecting protection and sensitivity.</div>
+    <label class="field-label" for="Skin Thickness"></label>
+    <input type="number"
+           id="Skin Thickness"
+           name="Skin Thickness"
+           min="0"
+           max="80"
+           placeholder="none"
+           required>
+</div>
+
+        <div class="card">
+    <div class="icon">💉</div>
+    <div class="card-title">Insulin</div>
+    <div class="card-desc">A hormone that regulates blood sugar levels in the body.</div>
+    <label class="field-label" for="Insulin"></label>
+    <input type="number"
+        id="Insulin"
+        name="Insulin"
+        min="0"
+        max="900"
+        placeholder="none"
+        required
+    >
+</div>
+
+       <div class="card">
+    <div class="icon"><i class="fas fa-weight-scale"></i></div>
+    <div class="card-title">Body Mass Index</div>
+    <div class="card-desc">A numerical value representing body fat based on height and weight.</div>
+    <label class="field-label" for="Body Mass Index"></label>
+    <input type="text"
+           id="Body Mass Index"
+           name="Body Mass Index"
+           min="10"
+           max="60"
+           placeholder="none"
+           required
+    >
+</div> 
+
+    </section>
+
+    <div style="text-align: center; margin: 20px;">
+  <button type="submit" class="submit-button">Submit</button>
+</div>
+
+</form>
+
+ <section class="output-box" style="border: 2px solid #ccc; padding: 16px; margin: 20px; background-color: #f9f9f9; font-size: 1.2em;">
+    <h2>Output</h2>
+    <div id="output-content">
+      <!-- Output data or messages will appear here -->
+      Please fill the above fields to see your diabetes risk assessment.
+    </div>
+  </section>
+
+<script>
+document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const output = document.getElementById('output-content');
+  output.textContent = 'Processing...';
+
+  // Collect form data
+  const age = parseInt(document.getElementById('Age').value.trim());
+  const pregnancy = parseInt(document.getElementById('Pregnancy').value.trim());
+  const glucose = parseFloat(document.getElementById('Glucose').value.trim());
+  const bloodPressure = parseFloat(document.getElementById('Blood Pressure').value.trim());
+  const skinThickness = parseFloat(document.getElementById('Skin Thickness').value.trim());
+  const insulin = parseFloat(document.getElementById('Insulin').value.trim());
+  const bmi = parseFloat(document.getElementById('Body Mass Index').value.trim());
+
+  // Basic validation
+  let errors = [];
+  if (isNaN(age) || age < 1 || age > 120) errors.push('Age must be between 1 and 120.');
+  if (isNaN(pregnancy) || pregnancy < 0 || pregnancy > 40) errors.push('Pregnancy weeks must be between 0 and 40.');
+  if (isNaN(glucose) || glucose <= 0) errors.push('Glucose must be a positive number.');
+  if (isNaN(bloodPressure) || bloodPressure <= 0) errors.push('Blood Pressure must be a positive number.');
+  if (isNaN(skinThickness) || skinThickness <= 0) errors.push('Skin Thickness must be a positive number.');
+  if (isNaN(insulin) || insulin <= 0) errors.push('Insulin must be a positive number.');
+  if (isNaN(bmi) || bmi < 10 || bmi > 60) errors.push('BMI must be between 10 and 60.');
+
+  if (errors.length > 0) {
+    output.innerHTML = '<p style="color: red;">' + errors.join('<br>') + '</p>';
+    return;
+  }
+
+  // Send data to API
+  fetch('/predict_diabetes', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      Age: age,
+      Pregnancy: pregnancy,
+      Glucose: glucose,
+      'Blood Pressure': bloodPressure,
+      'Skin Thickness': skinThickness,
+      Insulin: insulin,
+      'Body Mass Index': bmi
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.error) {
+      output.innerHTML = '<p style="color: red;">Error: ' + data.error + '</p>';
+    } else {
+      const prediction = data.prediction;
+      const result = prediction === 1 ? 'High risk of diabetes' : 'Low risk of diabetes';
+      output.innerHTML = `
+        <p><strong>Diabetes Prediction Result</strong></p>
+        <p>Prediction: <strong style="color: ${prediction === 1 ? 'red' : 'green'};">${result}</strong></p>
+        <p>Recommendations:</p>
+        <ul>
+          ${prediction === 1 ? '<li>Consult a healthcare professional immediately.</li>' : ''}
+          <li>Maintain a healthy diet and exercise regularly.</li>
+          <li>Monitor blood sugar levels frequently.</li>
+        </ul>
+      `;
+    }
+  })
+  .catch(error => {
+    output.innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
+  });
+});
+</script>
+
+</body>
+</html>
