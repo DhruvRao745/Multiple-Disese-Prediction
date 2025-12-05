@@ -20,8 +20,8 @@ parkinsons_scaler = joblib.load('parkinsons_scaler.pkl')
 
 # Routes to serve HTML pages
 @app.route('/')
-def home():
-    return send_file('FrontPage.Html')
+# def home():
+#     return send_file('FrontPage.Html')
 
 @app.route('/diabetes')
 def diabetes_page():
@@ -36,9 +36,9 @@ def parkinsons_page():
     return send_file('parkinsons.html')
 
 # Routes to serve CSS files
-@app.route('/frontpage.css')
-def frontpage_css():
-    return send_file('frontpage.css')
+# @app.route('/frontpage.css')
+# def frontpage_css():
+#     return send_file('frontpage.css')
 
 @app.route('/Diabetes.css')
 def diabetes_css():
